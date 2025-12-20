@@ -9,7 +9,7 @@ export const teachers = [
     degree: "Iqtisodiyot fanlari doktori, Professor",
     specialization: "Iqtisodiyot va boshqaruv",
     experience: "25+ yil akademik va boshqaruv tajribasi",
-    image: "/teachers/honkeldiyeva.jpg",
+    image: "/teachers/dekan.jpg",
     email: "honkeldiyeva@mail.ru",
     profileUrl: "/teachers/xonkeldiyeva-gozal-sherovna",
   },
