@@ -57,7 +57,7 @@ export const teachers = [
 
 export default function App() {
   return (
-    <div className=" bg-zinc-50 font-sans dark:bg-black h-full">
+    <div className="bg-zinc-50 font-sans dark:bg-black h-full">
       <div className="custom-container flex justify-between items-center py-25">
         <div className="font-epilogue flex flex-col gap-4 items-start">
           <p className="text-[#704FE6] font-poppins font-bold text-2xl">
