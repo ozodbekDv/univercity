@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, GraduationCap, BookOpen, Linkedin } from "lucide-react";
+import { Mail, Linkedin, ArrowUpRight } from "lucide-react";
 
 type Teacher = {
   name: string;
@@ -18,85 +18,91 @@ export default function TeachersCard({ teacher }: { teacher: Teacher }) {
   return (
     <div
       className="
-        group rounded-2xl border border-black/10 dark:border-white/10
-        bg-white dark:bg-zinc-900
-        p-5 transition hover:shadow-lg
+        group relative h-[420px] overflow-hidden rounded-3xl
+        bg-black text-white
+        transition-all duration-500
+        hover:scale-[1.02]
       "
     >
-      {/* Image */}
-      <div className="relative mx-auto h-40 w-40 overflow-hidden rounded-xl">
+      {/* DIAGONAL ACCENT */}
+      <div
+        className="
+        absolute inset-0
+        bg-linear-to-br from-[#704FE6]/80 to-transparent
+        opacity-0 group-hover:opacity-100
+        transition
+      "
+      />
+
+      {/* IMAGE SIDE */}
+      <div className="absolute right-0 top-0 h-full w-1/2">
         <Image
           src={teacher.image}
           alt={teacher.name}
           fill
-          className="object-cover"
+          className="object-cover grayscale group-hover:grayscale-0 transition"
         />
       </div>
 
-      {/* Info */}
-      <div className="mt-4 text-center">
-        <h3 className="text-lg font-semibold text-black dark:text-white">
-          {teacher.name}
-        </h3>
+      {/* CONTENT */}
+      <div className="relative z-10 h-full w-1/2 p-6 flex flex-col justify-between">
+        <div>
+          <p className="text-xs uppercase tracking-widest text-[#5EDFFF]">
+            {teacher.position}
+          </p>
 
-        <p className="text-sm text-black/60 dark:text-white/60">
-          {teacher.position}
-        </p>
+          <h3 className="mt-2 text-2xl font-extrabold leading-tight">
+            {teacher.name}
+          </h3>
 
-        <p className="mt-1 text-sm font-medium">{teacher.degree}</p>
-      </div>
+          <p className="mt-3 text-sm text-white/70">{teacher.degree}</p>
 
-      {/* Details */}
-      <div className="mt-4 space-y-2 text-sm text-black/70 dark:text-white/70">
-        <div className="flex items-center gap-2 justify-center">
-          <GraduationCap size={16} />
-          <span>{teacher.specialization}</span>
+          <div className="mt-4 space-y-2 text-sm text-white/80">
+            <p>• {teacher.specialization}</p>
+            <p>• {teacher.experience}</p>
+          </div>
         </div>
 
-        <div className="flex items-center gap-2 justify-center">
-          <BookOpen size={16} />
-          <span>{teacher.experience}</span>
+        {/* ACTIONS */}
+        <div className="flex items-center gap-4">
+          {teacher.email && (
+            <a
+              href={`mailto:${teacher.email}`}
+              className="text-white/70 hover:text-white"
+            >
+              <Mail size={18} />
+            </a>
+          )}
+
+          {teacher.linkedin && (
+            <a
+              href={teacher.linkedin}
+              target="_blank"
+              className="text-white/70 hover:text-white"
+            >
+              <Linkedin size={18} />
+            </a>
+          )}
+
+          {teacher.profileUrl && (
+            <Link
+              href={teacher.profileUrl}
+              className="
+                ml-auto inline-flex items-center gap-1
+                text-sm font-medium
+                text-[#5EDFFF] hover:text-white
+              "
+            >
+              Profil
+              <ArrowUpRight size={14} />
+            </Link>
+          )}
         </div>
       </div>
 
-      {/* Actions */}
-      <div className="mt-5 flex items-center justify-center gap-3">
-        {teacher.email && (
-          <a
-            href={`mailto:${teacher.email}`}
-            className="
-              rounded-full border border-black/10 dark:border-white/10
-              p-2 hover:bg-black/5 dark:hover:bg-white/10
-            "
-          >
-            <Mail size={16} />
-          </a>
-        )}
-
-        {teacher.linkedin && (
-          <a
-            href={teacher.linkedin}
-            target="_blank"
-            className="
-              rounded-full border border-black/10 dark:border-white/10
-              p-2 hover:bg-black/5 dark:hover:bg-white/10
-            "
-          >
-            <Linkedin size={16} />
-          </a>
-        )}
-
-        {teacher.profileUrl && (
-          <Link
-            href={teacher.profileUrl}
-            className="
-              rounded-xl bg-black px-4 py-2 text-sm text-white
-              dark:bg-white dark:text-black
-            "
-          >
-            Profil
-          </Link>
-        )}
+      {/* BIG BACK TEXT */}
+      <div className="absolute bottom-4 left-4 text-[120px] font-black text-white/5 leading-none select-none">
+        EDU
       </div>
     </div>
   );

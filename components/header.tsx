@@ -8,7 +8,6 @@ import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import ThemeSwitcher from "./themeSwitcher";
 
-// shadcn/ui
 import {
   Sheet,
   SheetContent,
@@ -28,76 +27,91 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed top-0 h-25 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
-      <div className="custom-container flex items-center justify-between py-3">
-        {/* LOGO */}
-        <Link href={"/"}>
-          <Image
-            src={"/web-app-manifest-192x192.png"}
-            alt="iqtisodiyot logosi"
-            width={80}
-            height={80}
-          />
-        </Link>
+    <header className="fixed top-4 z-50 w-full px-4">
+      <div className="mx-auto max-w-7xl">
+        <div className="relative flex items-center justify-between rounded-3xl border border-white/10 bg-background/70 backdrop-blur-xl px-6 py-3 shadow-lg">
+          {/* LOGO */}
+          <Link href="/" className="group flex items-center gap-2">
+            <Image
+              src="/web-app-manifest-192x192.png"
+              alt="iqtisodiyot logosi"
+              width={52}
+              height={52}
+              className="transition group-hover:scale-105 group-hover:drop-shadow-[0_0_12px_rgba(59,130,246,0.6)]"
+            />
+            <span className="hidden sm:block text-lg font-semibold tracking-tight">
+              Iqtisodiyot
+            </span>
+          </Link>
 
-        {/* DESKTOP NAV */}
-        <nav className="hidden md:flex items-center gap-4">
-          {links.map((link) => {
-            const isActive =
-              link.path === "/"
-                ? pathname === "/"
-                : pathname.startsWith(link.path);
+          {/* DESKTOP NAV */}
+          <nav className="hidden md:flex items-center gap-1">
+            {links.map((link) => {
+              const isActive =
+                link.path === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.path);
 
-            return (
-              <Link
-                key={link.path}
-                href={link.path}
-                aria-current={isActive ? "page" : undefined}
-                className={`rounded-2xl px-4 py-2 border transition
-                  ${
-                    isActive
-                      ? "border-blue-500 text-blue-600"
-                      : "border-transparent hover:border-muted"
-                  }`}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-        </nav>
+              return (
+                <Link
+                  key={link.path}
+                  href={link.path}
+                  className="relative px-4 py-2 text-sm font-medium transition"
+                >
+                  <span
+                    className={`relative z-10 ${
+                      isActive
+                        ? "text-blue-600"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {link.name}
+                  </span>
 
-        {/* RIGHT ACTIONS */}
-        <div className="flex items-center gap-3">
-          <Button size="sm" className="rounded-full hidden md:inline-flex">
-            UZB
-          </Button>
+                  {/* ACTIVE INDICATOR */}
+                  {isActive && (
+                    <span className="absolute inset-x-2 -bottom-1 h-1 rounded-full bg-linear-to-r from-blue-500 to-cyan-400" />
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
 
-          <ThemeSwitcher />
+          {/* ACTIONS */}
+          <div className="flex items-center gap-2">
+            <Button
+              size="sm"
+              className="hidden md:inline-flex rounded-full bg-linear-to-r from-blue-500 to-cyan-500 text-white shadow-md hover:opacity-90"
+            >
+              UZB
+            </Button>
 
-          {/* MOBILE MENU */}
-          <div className="md:hidden">
+            <ThemeSwitcher />
+
+            {/* MOBILE */}
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="md:hidden">
                   <Menu />
                 </Button>
               </SheetTrigger>
 
-              <SheetContent side="right">
+              <SheetContent
+                side="right"
+                className="border-white/10 bg-background/90 backdrop-blur-xl"
+              >
                 <SheetHeader>
                   <SheetTitle>
-                    <Link href={"/"}>
-                      <Image
-                        src={"/web-app-manifest-192x192.png"}
-                        alt="iqtisodiyot logosi"
-                        width={80}
-                        height={80}
-                      />
-                    </Link>
+                    <Image
+                      src="/web-app-manifest-192x192.png"
+                      alt="iqtisodiyot logosi"
+                      width={64}
+                      height={64}
+                    />
                   </SheetTitle>
                 </SheetHeader>
 
-                <nav className="mt-6 flex flex-col gap-3">
+                <nav className="mt-8 flex flex-col gap-3">
                   {links.map((link) => {
                     const isActive =
                       link.path === "/"
@@ -108,11 +122,11 @@ export default function Header() {
                       <Link
                         key={link.path}
                         href={link.path}
-                        className={`rounded-xl px-4 py-3 border
+                        className={`rounded-2xl px-4 py-3 text-sm font-medium transition
                           ${
                             isActive
-                              ? "border-blue-500 text-blue-600"
-                              : "border-transparent"
+                              ? "bg-blue-500/10 text-blue-600"
+                              : "hover:bg-muted"
                           }`}
                       >
                         {link.name}

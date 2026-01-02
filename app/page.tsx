@@ -1,15 +1,25 @@
-import KPISection from "@/components/KPISection";
-import TeachersCard from "@/components/TeachersCard";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+"use client";
 
-// shad ui
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
+// Sections
+import KPISection from "@/components/KPISection";
+import AboutSection from "@/components/AboutSection";
+import ProgramsSection from "@/components/ProgramsSection";
 import WhyChooseUs from "@/components/WhyWe";
+import TeachersCard from "@/components/TeachersCard";
+import AchievementsSection from "@/components/AchievementsSection";
+import CareerSection from "@/components/CareerSection";
+import NewsSection from "@/components/NewsSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import EventsSection from "@/components/EventsSection";
+import PartnersSection from "@/components/PartnersSection";
+import CTASection from "@/components/CtaSection";
+import { stagger, fadeUp } from "@/lib/animations";
+
+/* ================= DATA ================= */
 
 export const teachers = [
   {
@@ -64,73 +74,215 @@ export const teachers = [
   },
 ];
 
-export default function App() {
+/* ================= PAGE ================= */
+
+export default function HomePage() {
   return (
-    <div className="bg-zinc-50 font-sans dark:bg-black h-full">
-      <div className="custom-container flex justify-between md:flex-row flex-col gap-4 items-center md:py-25 py-5">
-        <div className="font-epilogue flex flex-col gap-4 items-start order-2 md:order-0">
-          <h1 className="text-md md:text-3xl font-bold text-[#704FE6] font-poppins">
-            Iqtisodiyot va raqamli texnologiyalar <br /> kesishmasidagi yetakchi
-            fakultet
-          </h1>
-          <p className="text-sm md:text-md">
-            Biz iqtisodiyot, moliya va raqamli boshqaruv yo‘nalishlarida
-            zamonaviy bilimga ega mutaxassislar tayyorlaymiz. Bitiruvchilarimiz
-            bank, konsalting, IT va davlat sektorida faoliyat yuritadi.
-          </p>
-          <div className="flex gap-1 md:gap-4 items-start">
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button className="bg-[#17254E] rounded-3xl text-white">
-                  🎓
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p> Ta’lim yo‘nalishlari</p>
-              </TooltipContent>
-            </Tooltip>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button className="bg-[#17254E] rounded-3xl text-white">
-                  🌍
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p> Xalqaro dasturlar</p>
-              </TooltipContent>
-            </Tooltip>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button className="bg-[#17254E] rounded-3xl text-white">
-                  📥
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p> Qabul haqida</p>
-              </TooltipContent>
-            </Tooltip>
-          </div>
+    <main className="bg-zinc-50 dark:bg-black font-sans overflow-hidden">
+      {/* ================= HERO ================= */}
+      <section className="relative">
+        <div className="absolute inset-0 bg-linear-to-br from-[#704FE6]/20 via-transparent to-[#17254E]/30" />
+
+        <div className="custom-container relative grid md:grid-cols-2 gap-12 items-center py-28">
+          {/* LEFT */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col gap-6"
+          >
+            <span className="w-fit rounded-full bg-[#704FE6]/10 text-[#704FE6] px-4 py-1 text-sm font-medium">
+              🚀 Yetakchi fakultet
+            </span>
+
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+              Iqtisodiyot va <br />
+              <span className="text-[#704FE6]">
+                raqamli texnologiyalar
+              </span>{" "}
+              kelajagi
+            </h1>
+
+            <p className="text-zinc-600 dark:text-zinc-400 max-w-xl">
+              Biz real bozor talabiga mos, zamonaviy iqtisodchi va raqamli
+              menejerlarni tayyorlaymiz.
+            </p>
+
+            <div className="flex gap-4">
+              <Button className="rounded-full px-8 bg-[#704FE6] transition hover:scale-[1.03] hover:shadow-xl">
+                Qabulga ariza
+              </Button>
+              <Button variant="outline" className="rounded-full px-8">
+                Yo‘nalishlar
+              </Button>
+            </div>
+          </motion.div>
+
+          {/* RIGHT */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative"
+          >
+            <Image
+              src="/images/slide1.jpg"
+              alt="faculty"
+              width={600}
+              height={420}
+              className="rounded-3xl shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
+            />
+
+            <div className="absolute -bottom-6 -left-6 bg-white dark:bg-zinc-900 rounded-2xl px-5 py-3 shadow-lg text-sm">
+              🎓 10+ ta zamonaviy dastur
+            </div>
+          </motion.div>
         </div>
-        <Image
-          className="rounded-3xl order-1 md:order-0"
-          src={"/images/slide1.jpg"}
-          alt="iqtisodiyot ustozlar"
-          width={600}
-          height={400}
-        />
-      </div>
-      <KPISection />
-      <WhyChooseUs />
-      <div className="custom-container flex flex-col justify-between items-center py-25">
-        <p className="text-[#704FE6] text-4xl font-bold mx-auto mb-10">
-          Bizning Ustozlar
-        </p>
-        <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
+      </section>
+
+      {/* ================= KPI ================= */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <KPISection />
+      </motion.section>
+
+      {/* ================= ABOUT ================= */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <AboutSection />
+      </motion.section>
+
+      {/* ================= PROGRAMS ================= */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <ProgramsSection />
+      </motion.section>
+
+      {/* ================= WHY US ================= */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="custom-container"
+      >
+        <WhyChooseUs />
+      </motion.section>
+
+      {/* ================= TEACHERS ================= */}
+      <section className="custom-container py-24">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl font-bold mb-4">Bizning ustozlar</h2>
+          <p className="text-zinc-500">Tajribali professor va mutaxassislar</p>
+        </motion.div>
+
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 sm:grid-cols-2 gap-8"
+        >
           {teachers.map((teacher) => (
-            <TeachersCard key={teacher.name} teacher={teacher} />
+            <motion.div
+              key={teacher.name}
+              variants={fadeUp}
+              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
+              <TeachersCard teacher={teacher} />
+            </motion.div>
           ))}
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </section>
+
+      {/* ================= ACHIEVEMENTS ================= */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <AchievementsSection />
+      </motion.section>
+
+      {/* ================= CAREER ================= */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <CareerSection />
+      </motion.section>
+
+      {/* ================= NEWS ================= */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <NewsSection />
+      </motion.section>
+
+      {/* ================= TESTIMONIALS ================= */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <TestimonialsSection />
+      </motion.section>
+
+      {/* ================= EVENTS ================= */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <EventsSection />
+      </motion.section>
+
+      {/* ================= PARTNERS ================= */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <PartnersSection />
+      </motion.section>
+
+      {/* ================= CTA ================= */}
+      <motion.section
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
+        <CTASection />
+      </motion.section>
+    </main>
   );
 }
