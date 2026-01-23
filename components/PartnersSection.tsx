@@ -83,7 +83,7 @@ const internationalPartners = [
 
 export default function PartnersSection() {
   return (
-    <section className="py-16 md:py-25 bg-white dark:bg-black">
+    <section className="py-16 md:py-25">
       <div className="custom-container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#704FE6] font-poppins mb-4">
