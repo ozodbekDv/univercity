@@ -19,7 +19,7 @@ import {
 const links = [
   { name: "Bosh sahifa", path: "/" },
   { name: "Biz haqimizda", path: "/about" },
-  { name: "Yo'nalishlar", path: "/major" },
+  { name: "Yo'nalishlar", path: "/programs" },
   { name: "Fanlar", path: "/subjects" },
 ];
 

@@ -38,9 +38,19 @@ export const teachers = [
     degree: "Iqtisodiyot fanlari bo‘yicha falsafa doktori (PhD)",
     specialization: "Ilmiy ishlar va innovatsiyalar",
     experience: "5+ yil akademik faoliyat",
-    image: "/teachers/mirsodiqov.jpg",
+    image: "/teachers/abdulla-mirsodiqov.jpg",
     email: "",
     profileUrl: "/teachers/mirsodiqov-abdulla-tursunaliyevich",
+  },
+  {
+    name: "Elyor Xamidov",
+    position: "O'quv bo'limi bo‘yicha dekan o‘rinbosari",
+    degree: "Iqtisodiyot fanlari bo‘yicha falsafa doktori (PhD)",
+    specialization: "Ilmiy ishlar va innovatsiyalar",
+    experience: "5+ yil akademik faoliyat",
+    image: "/teachers/elyor-teacher.jpg",
+    email: "",
+    profileUrl: "/teachers/elyor-xamidov",
   },
   {
     name: "Nematova Shaxlo Egamberdiyevna",
@@ -96,11 +106,8 @@ export default function HomePage() {
             </span>
 
             <h1 className="text-3xl md:text-5xl font-bold leading-tight">
-              Iqtisodiyot va <br />
-              <span className="text-[#704FE6]">
-                raqamli texnologiyalar
-              </span>{" "}
-              kelajagi
+              Iqtisodiyot <br />
+              <span className="text-[#704FE6]">kelajagi</span>{" "}
             </h1>
 
             <p className="text-zinc-600 dark:text-zinc-400 max-w-xl">

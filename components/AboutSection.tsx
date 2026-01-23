@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function AboutSection() {
   return (
-    <section className="py-16 md:py-25 bg-white dark:bg-black">
+    <section className="py-16 md:py-25 bg-white dark:bg-black" id="about">
       <div className="custom-container">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left side - Images */}
