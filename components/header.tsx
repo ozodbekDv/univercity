@@ -21,6 +21,7 @@ const links = [
   { name: "Biz haqimizda", path: "/about" },
   { name: "Yo'nalishlar", path: "/programs" },
   { name: "Fanlar", path: "/subjects" },
+  { name: "Blog", path: "/blog" },
 ];
 
 export default function Header() {
