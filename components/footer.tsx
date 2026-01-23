@@ -11,7 +11,7 @@ import {
 export default function Footer() {
   return (
     <footer className="">
-      <div className="custom-container py-16 grid gap-10 md:grid-cols-4">
+      <div className="custom-container py-16 grid gap-10 md:grid-cols-4 border-t border-gray-400">
         {/* ABOUT */}
         <div className="space-y-4">
           <h3 className="text-xl font-bold text-[#5EDFFF]">
