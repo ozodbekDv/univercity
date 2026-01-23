@@ -18,91 +18,94 @@ export default function TeachersCard({ teacher }: { teacher: Teacher }) {
   return (
     <div
       className="
-        group relative h-[420px] overflow-hidden rounded-3xl
-        bg-black text-white
-        transition-all duration-500
-        hover:scale-[1.02]
+        group relative overflow-hidden rounded-2xl
+    bg-white text-neutral-900
+    dark:bg-neutral-900 dark:text-neutral-100
+    border border-neutral-200 dark:border-neutral-800
+    shadow-lg
+    transition
+    hover:border-indigo-500/40
       "
     >
-      {/* DIAGONAL ACCENT */}
+      {/* CREATIVE ACCENT STRIPE */}
       <div
         className="
-        absolute inset-0
-        bg-linear-to-br from-[#704FE6]/80 to-transparent
-        opacity-0 group-hover:opacity-100
-        transition
+        absolute left-0 top-0 h-full w-1
+        bg-linear-to-b from-indigo-500 via-cyan-400 to-transparent
       "
       />
 
-      {/* IMAGE SIDE */}
-      <div className="absolute right-0 top-0 h-full w-1/2">
-        <Image
-          src={teacher.image}
-          alt={teacher.name}
-          fill
-          className="object-cover grayscale group-hover:grayscale-0 transition"
-        />
-      </div>
-
-      {/* CONTENT */}
-      <div className="relative z-10 h-full w-1/2 p-6 flex flex-col justify-between">
-        <div>
-          <p className="text-xs uppercase tracking-widest text-[#5EDFFF]">
-            {teacher.position}
-          </p>
-
-          <h3 className="mt-2 text-2xl font-extrabold leading-tight">
-            {teacher.name}
-          </h3>
-
-          <p className="mt-3 text-sm text-white/70">{teacher.degree}</p>
-
-          <div className="mt-4 space-y-2 text-sm text-white/80">
-            <p>• {teacher.specialization}</p>
-            <p>• {teacher.experience}</p>
+      <div className="flex gap-6 p-6">
+        {/* AVATAR */}
+        <div className="relative h-28 w-28 shrink-0">
+          <div className="absolute inset-0 rounded-xl bg-linear-to-br from-indigo-500 to-cyan-400 opacity-70 blur" />
+          <div className="relative h-full w-full overflow-hidden rounded-xl">
+            <Image
+              src={teacher.image}
+              alt={teacher.name}
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
 
-        {/* ACTIONS */}
-        <div className="flex items-center gap-4">
-          {teacher.email && (
-            <a
-              href={`mailto:${teacher.email}`}
-              className="text-white/70 hover:text-white"
-            >
-              <Mail size={18} />
-            </a>
-          )}
+        {/* CONTENT */}
+        <div className="flex flex-1 flex-col justify-between">
+          {/* IDENTITY */}
+          <div>
+            <h3 className="text-lg font-bold">{teacher.name}</h3>
 
-          {teacher.linkedin && (
-            <a
-              href={teacher.linkedin}
-              target="_blank"
-              className="text-white/70 hover:text-white"
-            >
-              <Linkedin size={18} />
-            </a>
-          )}
+            <p className="text-sm font-medium text-indigo-400">
+              {teacher.position}
+            </p>
+          </div>
 
-          {teacher.profileUrl && (
-            <Link
-              href={teacher.profileUrl}
-              className="
-                ml-auto inline-flex items-center gap-1
-                text-sm font-medium
-                text-[#5EDFFF] hover:text-white
-              "
-            >
-              Profil
-              <ArrowUpRight size={14} />
-            </Link>
-          )}
+          {/* CREDENTIALS */}
+          <div className="mt-3 space-y-1 text-sm text-indigo-500 dark:text-neutral-300">
+            <p>{teacher.degree}</p>
+            <p>{teacher.specialization}</p>
+            <p className="text-neutral-400">Tajriba: {teacher.experience}</p>
+          </div>
+
+          {/* ACTIONS */}
+          <div className="mt-4 flex items-center gap-4 border-t border-neutral-800 pt-3">
+            {teacher.email && (
+              <a
+                href={`mailto:${teacher.email}`}
+                className="text-neutral-400 hover:text-white transition"
+              >
+                <Mail size={18} />
+              </a>
+            )}
+
+            {teacher.linkedin && (
+              <a
+                href={teacher.linkedin}
+                target="_blank"
+                className="text-neutral-400 hover:text-white transition"
+              >
+                <Linkedin size={18} />
+              </a>
+            )}
+
+            {teacher.profileUrl && (
+              <Link
+                href={teacher.profileUrl}
+                className="
+                  ml-auto inline-flex items-center gap-1.5
+                  rounded-md px-3 py-1.5
+                  text-sm font-medium bg-neutral-200
+                  dark:bg-neutral-800 text-indigo-400
+                  hover:bg-indigo-500 hover:text-black
+                  transition
+                "
+              >
+                Profil
+                <ArrowUpRight size={14} />
+              </Link>
+            )}
+          </div>
         </div>
-      </div>
-
-      {/* BIG BACK TEXT */}
-      <div className="absolute bottom-4 left-4 text-[120px] font-black text-white/5 leading-none select-none">
-        EDU
       </div>
     </div>
   );
