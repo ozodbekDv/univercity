@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { stagger, fadeUp } from "@/lib/animations";
 
 // Sections
 import KPISection from "@/components/KPISection";
@@ -17,7 +18,6 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import EventsSection from "@/components/EventsSection";
 import PartnersSection from "@/components/PartnersSection";
 import CTASection from "@/components/CtaSection";
-import { stagger, fadeUp } from "@/lib/animations";
 
 /* ================= DATA ================= */
 
@@ -232,24 +232,24 @@ export default function HomePage() {
       </motion.section>
 
       {/* ================= CAREER ================= */}
-      <motion.section
+      {/* <motion.section
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
         <CareerSection />
-      </motion.section>
+      </motion.section> */}
 
       {/* ================= NEWS ================= */}
-      <motion.section
+      {/* <motion.section
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
         <NewsSection />
-      </motion.section>
+      </motion.section> */}
 
       {/* ================= TESTIMONIALS ================= */}
       <motion.section
@@ -269,16 +269,6 @@ export default function HomePage() {
         viewport={{ once: true }}
       >
         <EventsSection />
-      </motion.section>
-
-      {/* ================= PARTNERS ================= */}
-      <motion.section
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <PartnersSection />
       </motion.section>
 
       {/* ================= CTA ================= */}
