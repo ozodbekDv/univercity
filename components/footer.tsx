@@ -10,14 +10,14 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0F172A] text-white">
+    <footer className="">
       <div className="custom-container py-16 grid gap-10 md:grid-cols-4">
         {/* ABOUT */}
         <div className="space-y-4">
           <h3 className="text-xl font-bold text-[#5EDFFF]">
             Iqtisodiyot va raqamli texnologiyalar fakulteti
           </h3>
-          <p className="text-sm text-white/70 leading-relaxed">
+          <p className="text-sm  leading-relaxed">
             Biz iqtisodiyot, moliya va raqamli boshqaruv yo‘nalishlarida
             zamonaviy bilim va amaliy ko‘nikmalarga ega mutaxassislarni
             tayyorlaymiz.
@@ -27,31 +27,21 @@ export default function Footer() {
         {/* NAVIGATION */}
         <div>
           <h4 className="mb-4 font-semibold text-[#5EDFFF]">Bo‘limlar</h4>
-          <ul className="space-y-2 text-sm text-white/70">
+          <ul className="space-y-2 text-sm ">
             <li>
-              <Link href="#about" className="hover:text-white">
-                Fakultet haqida
-              </Link>
+              <Link href="#about">Fakultet haqida</Link>
             </li>
             <li>
-              <Link href="#programs" className="hover:text-white">
-                Ta’lim dasturlari
-              </Link>
+              <Link href="#programs">Ta’lim dasturlari</Link>
             </li>
             <li>
-              <Link href="#teachers" className="hover:text-white">
-                Ustozlar
-              </Link>
+              <Link href="#teachers">Ustozlar</Link>
             </li>
             <li>
-              <Link href="#news" className="hover:text-white">
-                Yangiliklar
-              </Link>
+              <Link href="#news">Yangiliklar</Link>
             </li>
             <li>
-              <Link href="#admission" className="hover:text-white">
-                Qabul
-              </Link>
+              <Link href="#admission">Qabul</Link>
             </li>
           </ul>
         </div>
@@ -59,7 +49,7 @@ export default function Footer() {
         {/* CONTACT */}
         <div>
           <h4 className="mb-4 font-semibold text-[#5EDFFF]">Aloqa</h4>
-          <ul className="space-y-3 text-sm text-white/70">
+          <ul className="space-y-3 text-sm ">
             <li className="flex items-start gap-2">
               <MapPin size={16} className="mt-1" />
               <span>
