@@ -17,7 +17,7 @@ import { fadeUp } from "@/lib/animations";
 
 export default function AboutPage() {
   return (
-    <main className="bg-white dark:bg-black">
+    <div>
       {/* HERO */}
       <section className="py-20 bg-linear-to-r from-[#704FE6] to-indigo-600 text-white">
         <div className="custom-container text-center max-w-3xl">
@@ -67,7 +67,7 @@ export default function AboutPage() {
       </section>
 
       {/* WHY US */}
-      <section className="py-20 bg-gray-50 dark:bg-neutral-900">
+      <section className="py-20">
         <div className="custom-container">
           <h2 className="text-3xl font-bold text-center mb-12">
             Nima uchun aynan biz?
@@ -142,6 +142,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
