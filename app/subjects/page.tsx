@@ -93,7 +93,7 @@ const subjectsData = [
 
 export default function SubjectsPage() {
   return (
-    <main className="py-20 bg-linear-to-b from-[#f8f9fa] to-[#ffffff] dark:from-black dark:to-gray-900">
+    <main className="py-20">
       <div className="custom-container">
         {/* Header */}
         <div className="text-center mb-16">
