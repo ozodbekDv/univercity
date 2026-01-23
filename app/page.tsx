@@ -232,24 +232,24 @@ export default function HomePage() {
       </motion.section>
 
       {/* ================= CAREER ================= */}
-      <motion.section
+      {/* <motion.section
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
         <CareerSection />
-      </motion.section>
+      </motion.section> */}
 
       {/* ================= NEWS ================= */}
-      <motion.section
+      {/* <motion.section
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
         <NewsSection />
-      </motion.section>
+      </motion.section> */}
 
       {/* ================= TESTIMONIALS ================= */}
       <motion.section
