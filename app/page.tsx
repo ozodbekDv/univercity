@@ -121,7 +121,7 @@ export default function HomePage() {
             <div className="flex gap-4">
               <Link
                 href="/admission"
-                className="rounded-full px-8 bg-[#704FE6] transition hover:scale-[1.03] hover:shadow-xl"
+                className="rounded-full px-8 py-2 text-white bg-[#704FE6] transition hover:scale-[1.03] hover:shadow-xl"
               >
                 Qabulga ariza
               </Link>

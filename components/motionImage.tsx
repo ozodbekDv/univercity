@@ -1,5 +1,7 @@
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+
+const images = ["/images/main.jpg", "/images/main-2.jpg"];
 
 function StoryImage() {
   const ref = useRef<HTMLDivElement>(null);
@@ -7,9 +9,19 @@ function StoryImage() {
   const rotateX = useMotionValue(0);
   const rotateY = useMotionValue(0);
 
-  // smooth qilish uchun
+  // Smooth qilish uchun
   const smoothX = useSpring(rotateX, { stiffness: 100, damping: 20 });
   const smoothY = useSpring(rotateY, { stiffness: 100, damping: 20 });
+
+  const [currentImage, setCurrentImage] = useState(0);
+
+  // Auto slider
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 3000); // 3 soniya
+    return () => clearInterval(interval);
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const el = ref.current;
@@ -44,13 +56,18 @@ function StoryImage() {
       className="inline-block"
     >
       <motion.img
-        src="/images/main.jpg"
+        key={currentImage} // Framer Motion animatsiya uchun kalit
+        src={images[currentImage]}
         alt="entrance"
         className="object-contain rounded-2xl shadow-blue-700"
         style={{
           rotateX: smoothX,
           rotateY: smoothY,
         }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
       />
     </div>
   );
