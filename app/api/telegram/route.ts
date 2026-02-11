@@ -7,7 +7,7 @@ export async function POST(req: Request) {
     if (!name || !phone || !message) {
       return NextResponse.json(
         { error: "Majburiy maydonlar yetishmaydi" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -32,7 +32,7 @@ ${message}
           text,
           parse_mode: "Markdown",
         }),
-      }
+      },
     );
 
     if (!telegramRes.ok) {

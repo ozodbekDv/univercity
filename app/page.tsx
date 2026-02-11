@@ -18,6 +18,8 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import EventsSection from "@/components/EventsSection";
 import PartnersSection from "@/components/PartnersSection";
 import CTASection from "@/components/CtaSection";
+import Link from "next/link";
+import StoryImage from "@/components/motionImage";
 
 /* ================= DATA ================= */
 
@@ -63,12 +65,12 @@ export const teachers = [
     profileUrl: "/teachers/nematova-shaxlo-egamberdiyevna",
   },
   {
-    name: "Mirzayev Abdullajon Topilovich",
+    name: "Turg‘unov Muxriddin Mo‘ydinjon o‘g‘li",
     position: "“Iqtisodiyot va Turizm” kafedrasi mudiri",
-    degree: "Iqtisodiyot fanlari doktori, Professor",
+    degree: "Iqtisodiyot fanlari doktori",
     specialization: "Iqtisodiyot va turizm",
     experience: "20+ yil akademik faoliyat",
-    image: "/teachers/mirzayev.jpg",
+    image: "/teachers/muhriddin-turgunov.jpg",
     email: "abdubehr@mail.ru",
     profileUrl: "/teachers/mirzayev-abdullajon-topilovich",
   },
@@ -87,6 +89,7 @@ export const teachers = [
 /* ================= PAGE ================= */
 
 export default function HomePage() {
+  const navigate = 0;
   return (
     <main className="bg-zinc-50 dark:bg-black font-sans overflow-hidden">
       {/* ================= HERO ================= */}
@@ -119,9 +122,9 @@ export default function HomePage() {
               <Button className="rounded-full px-8 bg-[#704FE6] transition hover:scale-[1.03] hover:shadow-xl">
                 Qabulga ariza
               </Button>
-              <Button variant="outline" className="rounded-full px-8">
+              <Link href="/programs" className="rounded-full px-8 py-2 border">
                 Yo‘nalishlar
-              </Button>
+              </Link>
             </div>
           </motion.div>
 
@@ -132,13 +135,7 @@ export default function HomePage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative"
           >
-            <Image
-              src="/images/slide1.jpg"
-              alt="faculty"
-              width={600}
-              height={420}
-              className="rounded-3xl shadow-2xl transition-transform duration-500 hover:scale-[1.02]"
-            />
+            <StoryImage />
 
             <div className="absolute -bottom-6 -left-6 bg-white dark:bg-zinc-900 rounded-2xl px-5 py-3 shadow-lg text-sm">
               🎓 10+ ta zamonaviy dastur
@@ -206,7 +203,7 @@ export default function HomePage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-3 sm:grid-cols-2 gap-8"
+          className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8"
         >
           {teachers.map((teacher) => (
             <motion.div
@@ -272,14 +269,14 @@ export default function HomePage() {
       </motion.section>
 
       {/* ================= CTA ================= */}
-      <motion.section
+      {/* <motion.section
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
       >
         <CTASection />
-      </motion.section>
+      </motion.section> */}
     </main>
   );
 }

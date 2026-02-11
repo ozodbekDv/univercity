@@ -87,6 +87,19 @@ const programsData = [
     color: "from-fuchsia-500 to-violet-600",
     language: "O'zbek",
   },
+  {
+    id: 7,
+    title: "Mintaqaviy iqtisodiyot",
+    code: "5230902",
+    degree: "Bakalavr",
+    duration: "4 yil",
+    students: "70+ talaba",
+    description:
+      "Kadrlar boshqaruvi, motivatsiya tizimlari, mehnat huquqi, performance management va zamonaviy HR-analitika.",
+    icon: "🗺️",
+    color: "from-fuchsia-500 to-violet-600",
+    language: "O'zbek",
+  },
 ];
 
 export default function ProgramsPage() {
