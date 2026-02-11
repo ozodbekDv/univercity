@@ -258,7 +258,7 @@ export default function AdmissionPage() {
           <Accordion type="single" collapsible className="w-full space-y-4">
             <AccordionItem
               value="item-1"
-              className="border rounded-2xl px-6 bg-white dark:bg-[#131313] dark:bg-[#131313] shadow-sm"
+              className="border rounded-2xl px-6 bg-white dark:bg-[#131313] shadow-sm"
             >
               <AccordionTrigger className="text-lg font-semibold hover:no-underline">
                 Imtihon qanday o‘tadi?
