@@ -70,7 +70,7 @@ export const teachers = [
     degree: "Iqtisodiyot fanlari doktori",
     specialization: "Iqtisodiyot va turizm",
     experience: "20+ yil akademik faoliyat",
-    image: "/teachers/muhriddin-turgunov.jpg",
+    image: "/teachers/muhriddin.jpg",
     email: "abdubehr@mail.ru",
     profileUrl: "/teachers/mirzayev-abdullajon-topilovich",
   },
@@ -119,9 +119,12 @@ export default function HomePage() {
             </p>
 
             <div className="flex gap-4">
-              <Button className="rounded-full px-8 bg-[#704FE6] transition hover:scale-[1.03] hover:shadow-xl">
+              <Link
+                href="/admission"
+                className="rounded-full px-8 bg-[#704FE6] transition hover:scale-[1.03] hover:shadow-xl"
+              >
                 Qabulga ariza
-              </Button>
+              </Link>
               <Link href="/programs" className="rounded-full px-8 py-2 border">
                 Yo‘nalishlar
               </Link>
