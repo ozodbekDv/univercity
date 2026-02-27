@@ -7,8 +7,8 @@ type KPI = {
 };
 
 const kpis: KPI[] = [
-  { value: 8, label: "Kafedralar" },
-  { value: 45, label: "PhD / DSc (%)" },
+  { value: 3, label: "Kafedralar" },
+  { value: 25, label: "PhD / DSc" },
   { value: 12, label: "Xalqaro hamkorlar" },
   { value: 300, label: "Ilmiy ishlar" },
 ];
@@ -22,7 +22,7 @@ export default function KPISection() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
