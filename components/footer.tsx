@@ -15,7 +15,7 @@ export default function Footer() {
         {/* ABOUT */}
         <div className="space-y-4">
           <h3 className="text-xl font-bold text-[#5EDFFF]">
-            Iqtisodiyot va raqamli texnologiyalar fakulteti
+            Iqtisodiyot fakulteti
           </h3>
           <p className="text-sm  leading-relaxed">
             Biz iqtisodiyot, moliya va raqamli boshqaruv yo‘nalishlarida

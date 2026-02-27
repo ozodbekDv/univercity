@@ -42,28 +42,29 @@ export const teachers = [
     experience: "5+ yil akademik faoliyat",
     image: "/teachers/abdulla-mirsodiqov.jpg",
     email: "",
-    profileUrl: "/teachers/mirsodiqov-abdulla-tursunaliyevich",
+    profileUrl: "/teachers/mirsodiqov-abdulla",
   },
   {
-    name: "Elyor Xamidov",
+    name: "Elyor Xamidov Tursunali o‘g‘li",
     position: "O'quv bo'limi bo‘yicha dekan o‘rinbosari",
     degree: "Iqtisodiyot fanlari bo‘yicha falsafa doktori (PhD)",
     specialization: "Ilmiy ishlar va innovatsiyalar",
     experience: "5+ yil akademik faoliyat",
     image: "/teachers/elyor-teacher.jpg",
-    email: "",
+    email: "hamidovelyor@gmail.com",
     profileUrl: "/teachers/elyor-xamidov",
   },
   {
-    name: "Nematova Shaxlo Egamberdiyevna",
+    name: "Uzganbayeva Dilnoza Toxtasinovna",
     position: "Xotin-qizlar masalalari bo‘yicha dekan maslahatchisi",
     degree: "",
     specialization: "Xotin-qizlar masalalari",
-    experience: "Uzun yillik tajriba",
-    image: "/teachers/nematova.jpg",
+    experience: "5+ yil akademik faoliyat",
+    image: "/teachers/dilnoza-uzganbayeva.jpg",
     email: "",
-    profileUrl: "/teachers/nematova-shaxlo-egamberdiyevna",
+    profileUrl: "/teachers/dilnoza-toxtasinovna",
   },
+
   {
     name: "Turg‘unov Muxriddin Mo‘ydinjon o‘g‘li",
     position: "“Iqtisodiyot va Turizm” kafedrasi mudiri",
@@ -78,18 +79,27 @@ export const teachers = [
     name: "Jo‘rayeva Nodiraxon Qurbonovna",
     position: "Kafedra mudiri",
     degree: "Iqtisodiyot fanlari bo‘yicha falsafa doktori (PhD)",
-    specialization: "Iqtisodiyot",
+    specialization: "Jahon va mintaqa iqtisodiyot",
     experience: "Ko‘p yillik akademik faoliyat",
     image: "/teachers/jorayeva.jpg",
     email: "nodiraxonnum1@gmail.com",
     profileUrl: "/teachers/jorayeva-nodiraxon-qurbonovna",
+  },
+  {
+    name: "Oripov Abdumalik Abdusalomovich",
+    position: "Kafedra mudiri",
+    degree: "Iqtisodiyot fanlari bo‘yicha falsafa doktori (PhD)",
+    specialization: "Buxgalteriya hisobi va iqtisodiy tahlili",
+    experience: "Ko‘p yillik akademik faoliyat",
+    image: "/teachers/abdumalik.jpg",
+    email: "aoripov@gmail.com",
+    profileUrl: "/teachers/abdumalik-abdusalomovich",
   },
 ];
 
 /* ================= PAGE ================= */
 
 export default function HomePage() {
-  const navigate = 0;
   return (
     <main className="bg-zinc-50 dark:bg-black font-sans overflow-hidden">
       {/* ================= HERO ================= */}
