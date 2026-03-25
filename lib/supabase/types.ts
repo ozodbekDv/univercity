@@ -1,9 +1,3 @@
-// ─────────────────────────────────────────────
-// Supabase Database Types
-// Run: npx supabase gen types typescript --project-id YOUR_PROJECT_ID
-// to auto-generate this file from your actual schema.
-// ─────────────────────────────────────────────
-
 export type Json =
   | string
   | number
@@ -12,7 +6,7 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[];
 
-export interface Database {
+export type Database = {
   public: {
     Tables: {
       contacts: {
@@ -39,6 +33,7 @@ export interface Database {
           message?: string;
           status?: "new" | "read" | "replied";
         };
+        Relationships: [];
       };
       teachers: {
         Row: {
@@ -82,6 +77,7 @@ export interface Database {
           is_active?: boolean;
           sort_order?: number;
         };
+        Relationships: [];
       };
       news: {
         Row: {
@@ -116,10 +112,12 @@ export interface Database {
           published_at?: string | null;
           author?: string | null;
         };
+        Relationships: [];
       };
     };
     Views: Record<string, never>;
     Functions: Record<string, never>;
     Enums: Record<string, never>;
+    CompositeTypes: Record<string, never>;
   };
-}
+};

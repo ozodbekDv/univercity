@@ -1,5 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { NextRequest, NextResponse } from "next/server";
+import type { Database } from "@/lib/supabase/types";
+import { SupabaseClient } from "@supabase/supabase-js";
 
 export async function POST(request: NextRequest) {
   try {
@@ -23,11 +25,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const supabase = await createClient();
+    const supabase: SupabaseClient<Database, "public"> = await createClient();
+
+    const insertData: Database["public"]["Tables"]["contacts"]["Insert"] = {
+      name,
+      email,
+      phone: (phone as string) || null,
+      message,
+      status: "new",
+    };
 
     const { data, error } = await supabase
+      .schema("public")
       .from("contacts")
-      .insert({ name, email, phone: phone || null, message, status: "new" })
+      .insert(insertData)
       .select()
       .single();
 
