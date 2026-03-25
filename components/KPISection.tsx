@@ -4,13 +4,14 @@ import { useEffect, useRef, useState } from "react";
 type KPI = {
   value: number;
   label: string;
+  suffix?: string;
 };
 
 const kpis: KPI[] = [
-  { value: 3, label: "Kafedralar" },
-  { value: 25, label: "PhD / DSc" },
-  { value: 12, label: "Xalqaro hamkorlar" },
-  { value: 300, label: "Ilmiy ishlar" },
+  { value: 3,   label: "Kafedralar" },
+  { value: 25,  label: "PhD / DSc" },
+  { value: 12,  label: "Xalqaro hamkorlar" },
+  { value: 300, label: "Ilmiy ishlar", suffix: "+" },
 ];
 
 export default function KPISection() {
@@ -37,6 +38,7 @@ export default function KPISection() {
             key={kpi.label}
             value={kpi.value}
             label={kpi.label}
+            suffix={kpi.suffix}
             start={isVisible}
           />
         ))}
@@ -48,14 +50,17 @@ export default function KPISection() {
 type KPIItemProps = {
   value: number;
   label: string;
+  suffix?: string;
   start: boolean;
 };
 
-function KPIItem({ value, label, start }: KPIItemProps) {
+function KPIItem({ value, label, suffix, start }: KPIItemProps) {
   const [count, setCount] = useState(0);
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (!start) return;
+    if (!start || hasAnimated.current) return;
+    hasAnimated.current = true;
 
     let current = 0;
     const duration = 1200;
@@ -73,11 +78,10 @@ function KPIItem({ value, label, start }: KPIItemProps) {
   return (
     <div className="rounded-2xl bg-[#704FE6] p-8 text-center shadow-sm transition hover:shadow-md">
       <div className="text-4xl font-bold text-white">
-        {count}
-        {label.includes("%") && "%"}
-        {label === "Ilmiy ishlar" && "+"}
+        {count}{suffix}
       </div>
       <p className="mt-2 text-sm font-medium text-white">{label}</p>
     </div>
   );
 }
+

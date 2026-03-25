@@ -141,9 +141,9 @@ export default function AchievementsSection() {
             So'nggi Yutuqlar
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
-            {recentAchievements.map((achievement, index) => (
+            {recentAchievements.map((achievement) => (
               <div
-                key={index}
+                key={achievement.title}
                 className="flex gap-4 p-6 bg-white dark:bg-gray-900 rounded-xl border-2 border-gray-100 dark:border-gray-800 hover:border-[#704FE6] transition-all duration-300 hover:shadow-lg"
               >
                 <div className="shrink-0">
