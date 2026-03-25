@@ -36,6 +36,7 @@ export async function POST(request: NextRequest) {
     };
 
     const { data, error } = await supabase
+      .schema("public")
       .from("contacts")
       .insert(insertData)
       .select()
