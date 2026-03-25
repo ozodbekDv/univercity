@@ -19,8 +19,8 @@ import {
 const links = [
   { name: "Bosh sahifa", path: "/" },
   { name: "Biz haqimizda", path: "/about" },
-  { name: "Yo'nalishlar", path: "/programs" },
-  { name: "Fanlar", path: "/subjects" },
+  { name: "Postlar", path: "/posts" },
+  { name: "O'qituvchilar", path: "/teachers" },
   { name: "Blog", path: "/blog" },
 ];
 
@@ -80,6 +80,18 @@ export default function Header() {
 
           {/* ACTIONS */}
           <div className="flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-2">
+              <Link href="/login">
+                <Button variant="ghost" size="sm">Kirish</Button>
+              </Link>
+              <Link href="/register">
+                <Button size="sm" className="bg-blue-600 hover:bg-blue-700">Ro'yxatdan o'tish</Button>
+              </Link>
+              <Link href="/dashboard">
+                <Button variant="outline" size="sm">Dashboard</Button>
+              </Link>
+            </div>
+
             <Button
               size="sm"
               className="hidden md:inline-flex rounded-full bg-linear-to-r from-blue-500 to-cyan-500 text-white shadow-md hover:opacity-90"
